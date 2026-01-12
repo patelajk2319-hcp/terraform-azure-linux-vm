@@ -4,11 +4,11 @@ Production-ready Terraform module for deploying Azure Linux VMs with customer-ma
 
 ## Features
 
-- 🔐 Customer-managed disk encryption (Key Vault + Disk Encryption Set)
-- 🛡️ Network Security Group
-- 💾 Configurable data disks
-- 🏷️ Environment-based storage tiers (dev/test/uat = Standard_LRS, prod/pre-prod = Premium_ZRS)
-- 🔑 SSH key authentication only
+- Customer-managed disk encryption (Key Vault + Disk Encryption Set)
+- Network Security Group
+- Configurable data disks
+- Environment-based storage tiers (dev/test/uat = Standard_LRS, prod/pre-prod = Premium_ZRS)
+- SSH key authentication only
 
 ## Usage
 
@@ -51,16 +51,16 @@ az vm run-command invoke \
 
 | Name | Required | Default | Description |
 |------|----------|---------|-------------|
-| vm_name | ✅ | - | VM name (1-64 chars, lowercase/numbers/hyphens) |
-| region | ✅ | - | Azure region |
-| environment | ✅ | - | Environment: dev/test/uat/pre-prod/prod |
-| resource_group_name | ✅ | - | Resource group name |
-| subnet_id | ✅ | - | Subnet ID (full Azure resource ID) |
-| ssh_public_key | ✅ | - | SSH public key content |
-| vm_size | | `Standard_B2s` | Azure VM size |
-| data_disks_size_gb | | `[]` | List of disk sizes in GB |
-| admin_username | | `azureuser` | Admin username |
-| tags | | `{}` | Resource tags |
+| vm_name | Y | - | VM name (1-64 chars, lowercase/numbers/hyphens) |
+| region | Y | - | Azure region |
+| environment | Y | - | Environment: dev/test/uat/pre-prod/prod |
+| resource_group_name | Y | - | Resource group name |
+| subnet_id | Y | - | Subnet ID (full Azure resource ID) |
+| ssh_public_key | Y | - | SSH public key content |
+| vm_size | N | `Standard_B2s` | Azure VM size |
+| data_disks_size_gb | N | `[]` | List of disk sizes in GB |
+| admin_username | N | `azureuser` | Admin username |
+| tags | N | `{}` | Resource tags |
 
 ## Outputs
 
@@ -75,4 +75,4 @@ az vm run-command invoke \
 
 ---
 
-**Author**: [patelajk2319-hcp](https://github.com/patelajk2319-hcp)
+**Owner**: HashiCorp Services
