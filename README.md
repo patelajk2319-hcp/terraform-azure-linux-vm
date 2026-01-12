@@ -10,6 +10,25 @@ Production-ready Terraform module for deploying Azure Linux VMs with customer-ma
 - Environment-based storage tiers (dev/test/uat = Standard_LRS, prod/pre-prod = Premium_ZRS)
 - SSH key authentication only
 
+## Provider Requirements
+
+This is a Terraform module and does not include provider configuration. The consuming root module must configure the Azure provider:
+
+```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+```
+
 ## Usage
 
 ```hcl
@@ -27,19 +46,31 @@ module "linux_vm" {
 }
 ```
 
-## Testing Locally
+## Testing
+
+Run unit tests to validate module configuration:
+
+```bash
+# Run all tests
+task test
+
+# Or directly
+terraform test
+```
+
+## Testing Locally with Real Resources
 
 ```bash
 # 1. Setup
 cp terraform.tfvars.example terraform.tfvars
 # Edit terraform.tfvars with your values
 
-# 2. Deploy
+# 2. Login and Deploy
 task login  # or: az login
 terraform init
 terraform apply
 
-# 3. Test SSH (VM has private IP only)
+# 3. Verify SSH is configured (VM has private IP only)
 az vm run-command invoke \
   --resource-group <RG> --name <VM> \
   --command-id RunShellScript \

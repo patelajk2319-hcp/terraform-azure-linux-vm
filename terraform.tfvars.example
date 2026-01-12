@@ -1,7 +1,3 @@
-# Azure Configuration
-subscription_id = "your-subscription-id"
-tenant_id       = "your-tenant-id"
-
 # VM Configuration
 vm_name             = "test-vm-01"
 region              = "eastus"
@@ -16,8 +12,8 @@ vm_size            = "Standard_D2s_v3"
 data_disks_size_gb = [4, 4]
 
 # SSH Configuration
-admin_username       = "azureuser"
-ssh_public_key_path  = "~/.ssh/id_rsa.pub"
+admin_username = "azureuser"
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAA... your-ssh-public-key-here"
 
 # Tags
 tags = {

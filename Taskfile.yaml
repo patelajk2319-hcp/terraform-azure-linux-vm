@@ -9,11 +9,6 @@ tasks:
       - task --list-all
     silent: true
 
-  setup:
-    desc: Initial setup and configuration
-    cmds:
-      - ./scripts/setup.sh
-
   login:
     desc: Login to Azure
     cmds:
@@ -21,3 +16,17 @@ tasks:
         az login --tenant ${ARM_TENANT_ID}
         az account set --subscription ${ARM_SUBSCRIPTION_ID}
         az account show
+
+  run-tests:
+    desc: Run Terraform unit tests
+    aliases: [test]
+    cmds:
+      - echo "Running Terraform tests..."
+      - terraform test
+      - echo "All tests passed!"
+
+  validate:
+    desc: Validate Terraform configuration
+    cmds:
+      - terraform fmt -check -recursive
+      - terraform validate
