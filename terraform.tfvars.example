@@ -1,0 +1,27 @@
+# Azure Configuration
+subscription_id = "your-subscription-id"
+tenant_id       = "your-tenant-id"
+
+# VM Configuration
+vm_name             = "test-vm-01"
+region              = "eastus"
+environment         = "dev"
+resource_group_name = "your-resource-group"
+
+# Network Configuration
+subnet_id = "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME"
+
+# VM Size and Disks
+vm_size            = "Standard_D2s_v3"
+data_disks_size_gb = [4, 4]
+
+# SSH Configuration
+admin_username       = "azureuser"
+ssh_public_key_path  = "~/.ssh/id_rsa.pub"
+
+# Tags
+tags = {
+  Environment = "test"
+  Purpose     = "module-validation"
+  ManagedBy   = "terraform"
+}

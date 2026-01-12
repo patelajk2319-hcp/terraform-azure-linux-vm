@@ -1,0 +1,23 @@
+version: '3'
+
+dotenv: ['.env']
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list-all
+    silent: true
+
+  setup:
+    desc: Initial setup and configuration
+    cmds:
+      - ./scripts/setup.sh
+
+  login:
+    desc: Login to Azure
+    cmds:
+      - |
+        az login --tenant ${ARM_TENANT_ID}
+        az account set --subscription ${ARM_SUBSCRIPTION_ID}
+        az account show

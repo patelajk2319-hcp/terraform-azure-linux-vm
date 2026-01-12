@@ -1,0 +1,54 @@
+# Vault initialisation data
+vault-init.json
+*.snap
+
+# Certificates
+certs/
+
+# Vault audit logs (synced from minikube for ELK)
+vault-audit-logs/
+
+# ELK Fleet tokens
+fleet-tokens/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+*.tfvars
+tfplan*
+
+# Helm
+helm-chart/**/charts/
+helm-chart/**/*.tgz
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment files
+**/.env
+
+# Ignore user-specific dot folders
+.claude
+!.gitignore
+!.github/
+
+# Licence files
+*.lic
+
+# Data output folder
+data/
+
+# SSH keys
+*.pem
+*.key
+id_rsa*
+*.pub
