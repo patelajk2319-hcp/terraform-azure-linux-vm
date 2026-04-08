@@ -9,7 +9,7 @@ module "key_vault" {
   tags                = var.tags
 }
 
-# Disk Encryption Set Module - Manages customer-managed key encryption for disks
+# Disk Encryption Set Module
 module "disk_encryption_set" {
   source = "./modules/disk_encryption_set"
 
